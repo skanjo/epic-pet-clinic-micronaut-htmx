@@ -14,6 +14,9 @@ build/
 target/
 out/
 .micronaut/
+node_modules/
+# Tailwind generated file to include in build
+src/main/resources/public/css/app.css
 
 # ========================
 # Editor Artifacts

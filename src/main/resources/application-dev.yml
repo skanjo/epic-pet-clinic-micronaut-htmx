@@ -1,0 +1,4 @@
+micronaut:
+  views:
+    thymeleaf:
+      cache: false

@@ -1,0 +1,20 @@
+{
+  "name": "epic-pet-clinic-micronaut-htmx",
+  "version": "1.0.0",
+  "description": "An implementation of Epic Pet Clinic using Micronaut on the backend and HTMX on the frontend.",
+  "main": "index.js",
+  "scripts": {
+    "tailwind:build:dev": "tailwindcss -i ./src/main/resources/assets/css/tailwind.css -o ./src/main/resources/public/css/app.css",
+    "tailwind:build:prod": "tailwindcss -i ./src/main/resources/assets/css/tailwind.css -o ./src/main/resources/public/css/app.css --minify",
+    "tailwind:watch": "tailwindcss -i ./src/main/resources/assets/css/tailwind.css -o ./src/main/resources/public/css/app.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Samer Kanjo",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13"
+  }
+}
