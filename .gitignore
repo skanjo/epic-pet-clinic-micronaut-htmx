@@ -1,0 +1,32 @@
+# ========================
+# System Artifacts
+# ========================
+
+Thumbs.db
+.DS_Store
+
+# ========================
+# Build Artifacts
+# ========================
+
+.gradle
+build/
+target/
+out/
+.micronaut/
+
+# ========================
+# Editor Artifacts
+# ========================
+
+# Jetbrains
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.project
+.settings
+.classpath
+.factorypath
