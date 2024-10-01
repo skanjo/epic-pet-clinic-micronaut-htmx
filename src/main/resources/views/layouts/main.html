@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="An implementation of Epic Pet Clinic using Micronaut on the backend and HTMX on the frontend.">
+
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Epic Pet Clinic</title>
+
+    <script src="/lib/htmx.min-2.0.2.js"></script>
+    <script src="/lib/hyperscript.min-0.9.12.js"></script>
+
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="flex">
+    <div class=""><a class="" href="/" hx-get="/" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">SITE_LOGO_HERE</a></div>
+    <div class="">Epic Pet Clinic</div>
+    <nav class="">
+        <a class="" href="/home" hx-get="/home" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Home</a>
+        <a class="" href="/owners/find" hx-get="/owners/find" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Find Owners</a>
+        <a class="" href="/vets/find" hx-get="/vets/find" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Find Veterinarians</a>
+        <a class="" href="/error" hx-get="/error" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Error</a>
+    </nav>
+</header>
+
+<main id="content" layout:fragment="content">
+</main>
+
+<footer class="flex justify-center">
+    <div>LOGO_HERE Epic Pet Clinic by Samer Kanjo</div>
+</footer>
+</body>
+</html>

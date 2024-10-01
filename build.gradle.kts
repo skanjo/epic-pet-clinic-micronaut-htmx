@@ -5,7 +5,7 @@ plugins {
     id("maven-publish")
 }
 
-version = "0.1"
+version = "1.0.0"
 group = "com.epicpetclinic"
 description = "Epic Pet Clinic: Micronaut HTMX Edition"
 
@@ -28,6 +28,7 @@ dependencies {
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut.views:micronaut-views-core")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.yaml:snakeyaml")

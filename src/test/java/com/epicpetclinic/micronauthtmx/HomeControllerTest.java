@@ -19,7 +19,7 @@ public class HomeControllerTest {
 
     @Test
     public void testIndex() {
-        String title = "Epic Pet Clinic";
+        String title = "Epic Pet Clinic - Home";
 
         HttpRequest<?> request = HttpRequest.GET("/").accept(MediaType.TEXT_HTML);
         String html = client.toBlocking().retrieve(request);
@@ -27,7 +27,7 @@ public class HomeControllerTest {
         assertNotNull(html);
         assertTrue(html.contains("<!DOCTYPE html>"));
         assertTrue(html.contains("<title>" + title + "</title>"));
-        assertTrue(html.contains("<h1 class=\"text-4xl\">" + title + "</h1>"));
+        assertTrue(html.contains("<h1 class=\"text-4xl\">Welcome</h1>"));
     }
 
 }
