@@ -9,14 +9,15 @@
     <meta name="description"
           content="An implementation of Epic Pet Clinic using Micronaut on the backend and HTMX on the frontend.">
 
-    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Epic Pet Clinic</title>
+    <title th:text="${pageTitle}">Epic Pet Clinic</title>
 
     <script src="/lib/htmx.min-2.0.2.js"></script>
     <script src="/lib/hyperscript.min-0.9.12.js"></script>
+    <script src="/lib/head-support-2.0.1.js"></script>
 
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body hx-ext="head-support">
 <header class="flex">
     <div class=""><a class="" href="/" hx-get="/" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">SITE_LOGO_HERE</a></div>
     <div class="">Epic Pet Clinic</div>
@@ -28,7 +29,8 @@
     </nav>
 </header>
 
-<main id="content" layout:fragment="content">
+<main id="content">
+    <div layout:fragment="content"></div>
 </main>
 
 <footer class="flex justify-center">

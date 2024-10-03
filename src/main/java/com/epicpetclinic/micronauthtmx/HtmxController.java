@@ -4,7 +4,7 @@ import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.views.ModelAndView;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class HtmxController {
@@ -12,11 +12,11 @@ public abstract class HtmxController {
     private static final String DEFAULT_FRAGMENT = "content";
 
     protected HttpResponse<?> render(HttpRequest<?> request, String view) {
-        return render(request, view, DEFAULT_FRAGMENT, Collections.emptyMap());
+        return render(request, view, DEFAULT_FRAGMENT, new HashMap<>());
     }
 
     protected HttpResponse<?> render(HttpRequest<?> request, String view, String fragment) {
-        return render(request, view, fragment, Collections.emptyMap());
+        return render(request, view, fragment, new HashMap<>());
     }
 
     protected HttpResponse<?> render(HttpRequest<?> request, String view, Map<String, Object> model) {
@@ -24,12 +24,9 @@ public abstract class HtmxController {
     }
 
     protected HttpResponse<?> render(HttpRequest<?> request, String view, String fragment, Map<String, Object> model) {
-        String htmxRequest = request.getHeaders().get("HX-Request");
-        if (htmxRequest != null) {
-            return HttpResponse.ok(new ModelAndView<>(view + " :: " + fragment, model));
-        } else {
-            return HttpResponse.ok(new ModelAndView<>(view, model));
-
-        }
+        final boolean isHtmxRequest = request.getHeaders().contains("HX-Request");
+        model.put("isHtmxRequest", isHtmxRequest);
+        final String finalView = isHtmxRequest ? view + " :: " + fragment : view;
+        return HttpResponse.ok(new ModelAndView<>(finalView, model));
     }
 }
