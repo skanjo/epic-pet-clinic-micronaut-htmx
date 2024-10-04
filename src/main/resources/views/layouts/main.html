@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
->
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,18 +17,18 @@
 </head>
 <body hx-ext="head-support">
 <header class="flex">
-    <div class=""><a class="" href="/" hx-get="/" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">SITE_LOGO_HERE</a></div>
+    <div class=""><a class="" href="/" hx-get="/" hx-target="#content" hx-push-url="true">SITE_LOGO_HERE</a></div>
     <div class="">Epic Pet Clinic</div>
     <nav class="">
-        <a class="" href="/home" hx-get="/home" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Home</a>
-        <a class="" href="/owners/find" hx-get="/owners/find" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Find Owners</a>
-        <a class="" href="/vets/find" hx-get="/vets/find" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Find Veterinarians</a>
-        <a class="" href="/error" hx-get="/error" hx-target="#content" hx-swap="outerHTML" hx-push-url="true">Error</a>
+        <a class="" href="/home" hx-get="/home" hx-target="#content" hx-push-url="true">Home</a>
+        <a class="" href="/owners/find" hx-get="/owners/find" hx-target="#content" hx-push-url="true">Find Owners</a>
+        <a class="" href="/vets/find" hx-get="/vets/find" hx-target="#content" hx-push-url="true">Find Veterinarians</a>
+        <a class="" href="/error" hx-get="/error" hx-target="#content" hx-push-url="true">Error</a>
     </nav>
 </header>
 
 <main id="content">
-    <div layout:fragment="content"></div>
+    <th:block th:utext="${content}"></th:block>
 </main>
 
 <footer class="flex justify-center">

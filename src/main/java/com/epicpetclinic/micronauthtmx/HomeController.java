@@ -6,6 +6,7 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
+import io.micronaut.views.thymeleaf.ThymeleafViewsRenderer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +16,8 @@ public class HomeController extends HtmxController {
 
     private final PageTitle pageTitle;
 
-    public HomeController(PageTitle pageTitle) {
+    public HomeController(PageTitle pageTitle, ThymeleafViewsRenderer<Map<String, Object>> renderer) {
+        super(renderer);
         this.pageTitle = pageTitle;
     }
 

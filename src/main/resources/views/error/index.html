@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/main}">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${pageTitle}">Epic Pet Clinic</title>
 </head>
 <body>
-<main id="content" layout:fragment="content" th:fragment="content">
+<th:block th:fragment="content">
     <p>
         Puppy and Kitten image
     </p>
     <h1>Something happened...</h1>
-</main>
+</th:block>
 </body>
 </html>
