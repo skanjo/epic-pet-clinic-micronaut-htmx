@@ -39,7 +39,7 @@ public abstract class HtmxController {
 
         final boolean isHxRequest = request.getHeaders().contains("HX-Request");
         if (isHxRequest) {
-            return HttpResponse.ok(new ModelAndView<>(fragmentView, model));
+            return HttpResponse.ok(new ModelAndView<>(view, model));
         }
 
         Writable contentWritable = renderer.render(fragmentView, model, request);
