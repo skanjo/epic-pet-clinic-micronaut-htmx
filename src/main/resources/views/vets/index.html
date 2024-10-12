@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${pageTitle}">Epic Pet Clinic</title>
+    <th:block th:replace="~{page-title :: title(contentTitle='Vets')}"></th:block>
 </head>
 <body>
 <th:block th:fragment="content">

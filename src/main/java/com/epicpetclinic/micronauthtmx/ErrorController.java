@@ -6,26 +6,17 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
-import io.micronaut.views.thymeleaf.ThymeleafViewsRenderer;
+import io.micronaut.views.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
 
 @Controller("/error")
-public class ErrorController extends HtmxController {
-
-    private final PageTitle pageTitle;
-
-    public ErrorController(PageTitle pageTitle, ThymeleafViewsRenderer<Map<String, Object>> renderer) {
-        super(renderer);
-        this.pageTitle = pageTitle;
-    }
+public class ErrorController {
 
     @Produces(MediaType.TEXT_HTML)
     @Get
     public HttpResponse<?> index(HttpRequest<?> request) {
-        Map<String, Object> model = new HashMap<>();
-        model.put("pageTitle", pageTitle.generate("Error"));
-        return render(request, "error/index", model);
+        final String view = request.getHeaders().contains("HX-Request") ? "error/index" : "error";
+        return HttpResponse.ok(new ModelAndView<>(view, Collections.emptyMap()));
     }
 }

@@ -18,10 +18,10 @@ public class HomeControllerTest {
     private HttpClient client;
 
     @Test
-    public void testIndex() {
+    public void testHome() {
         String title = "Epic Pet Clinic - Home";
 
-        HttpRequest<?> request = HttpRequest.GET("/").accept(MediaType.TEXT_HTML);
+        HttpRequest<?> request = HttpRequest.GET("/home").accept(MediaType.TEXT_HTML);
         String html = client.toBlocking().retrieve(request);
 
         assertNotNull(html);

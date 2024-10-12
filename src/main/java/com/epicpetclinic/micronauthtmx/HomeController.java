@@ -6,26 +6,23 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
-import io.micronaut.views.thymeleaf.ThymeleafViewsRenderer;
+import io.micronaut.views.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URI;
+import java.util.Collections;
 
-@Controller("/home")
-public class HomeController extends HtmxController {
+@Controller
+public class HomeController {
 
-    private final PageTitle pageTitle;
-
-    public HomeController(PageTitle pageTitle, ThymeleafViewsRenderer<Map<String, Object>> renderer) {
-        super(renderer);
-        this.pageTitle = pageTitle;
+    @Get
+    public HttpResponse<?> root() {
+        return HttpResponse.temporaryRedirect(URI.create("/home"));
     }
 
     @Produces(MediaType.TEXT_HTML)
-    @Get
+    @Get("/home")
     public HttpResponse<?> index(HttpRequest<?> request) {
-        Map<String, Object> model = new HashMap<>();
-        model.put("pageTitle", pageTitle.generate("Home"));
-        return render(request, "home/index", model);
+        final String view = request.getHeaders().contains("HX-Request") ? "home/index" : "home";
+        return HttpResponse.ok(new ModelAndView<>(view, Collections.emptyMap()));
     }
 }

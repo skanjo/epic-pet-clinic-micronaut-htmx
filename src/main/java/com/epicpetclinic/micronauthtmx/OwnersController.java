@@ -6,26 +6,20 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
+import io.micronaut.views.ModelAndView;
 import io.micronaut.views.thymeleaf.ThymeleafViewsRenderer;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 @Controller("/owners")
-public class OwnersController extends HtmxController {
-
-    private final PageTitle pageTitle;
-
-    public OwnersController(PageTitle pageTitle, ThymeleafViewsRenderer<Map<String, Object>> renderer) {
-        super(renderer);
-        this.pageTitle = pageTitle;
-    }
+public class OwnersController {
 
     @Produces(MediaType.TEXT_HTML)
     @Get("/find")
     public HttpResponse<?> find(HttpRequest<?> request) {
-        Map<String, Object> model = new HashMap<>();
-        model.put("pageTitle", pageTitle.generate("Find Owners"));
-        return render(request, "owners/find", model);
+        final String view = request.getHeaders().contains("HX-Request") ? "owners/find" : "find-owners";
+        return HttpResponse.ok(new ModelAndView<>(view, Collections.emptyMap()));
     }
 }

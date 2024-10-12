@@ -27,6 +27,7 @@ dependencies {
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut.views:micronaut-views-core")
+    implementation("io.micronaut.views:micronaut-views-htmx")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
     compileOnly("io.micronaut:micronaut-http-client")
