@@ -4,9 +4,9 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/main}">
 <head>
-    <th:block layout:fragment="title" th:replace="~{page-title :: title(contentTitle='Error')}"></th:block>
+    <th:block layout:fragment="title" th:replace="~{partials/title :: title(contentTitle='Error')}"></th:block>
 </head>
 <body>
-<th:block layout:fragment="content" th:insert="~{error/index :: content}"></th:block>
+<th:block layout:fragment="content" th:insert="~{error/index-fragment :: content}"></th:block>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class HomeController {
     @Produces(MediaType.TEXT_HTML)
     @Get("/home")
     public HttpResponse<?> index(HttpRequest<?> request) {
-        final String view = request.getHeaders().contains("HX-Request") ? "home/index" : "home";
+        final String view = request.getHeaders().contains("HX-Request") ? "home/index-fragment" : "home/index-page";
         return HttpResponse.ok(new ModelAndView<>(view, Collections.emptyMap()));
     }
 }

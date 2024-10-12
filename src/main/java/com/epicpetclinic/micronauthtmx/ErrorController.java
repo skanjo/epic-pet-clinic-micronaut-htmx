@@ -16,7 +16,7 @@ public class ErrorController {
     @Produces(MediaType.TEXT_HTML)
     @Get
     public HttpResponse<?> index(HttpRequest<?> request) {
-        final String view = request.getHeaders().contains("HX-Request") ? "error/index" : "error";
+        final String view = request.getHeaders().contains("HX-Request") ? "error/index-fragment" : "error/index-page";
         return HttpResponse.ok(new ModelAndView<>(view, Collections.emptyMap()));
     }
 }

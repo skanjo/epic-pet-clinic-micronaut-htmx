@@ -16,7 +16,7 @@ public class VeterinariansController {
     @Produces(MediaType.TEXT_HTML)
     @Get("/find")
     public HttpResponse<?> find(HttpRequest<?> request) {
-        final String view = request.getHeaders().contains("HX-Request") ? "vets/index" : "find-vets";
+        final String view = request.getHeaders().contains("HX-Request") ? "vets/list-fragment" : "vets/list-page";
         return HttpResponse.ok(new ModelAndView<>(view, Collections.emptyMap()));
     }
 }
